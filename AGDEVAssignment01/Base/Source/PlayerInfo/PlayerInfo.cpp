@@ -361,6 +361,7 @@ void CPlayerInfo::Update(double dt)
 			viewUV = rotation * viewUV;
 			target = position + viewUV;
 		}
+
 	}
 
 	//Update the camera direction based on mouse move
