@@ -6,7 +6,7 @@
 #include "Mtx44.h"
 #include "../Projectile/Projectile.h"
 #include "../WeaponInfo/Pistol.h"
-
+#include"../WeaponInfo/CLaserBlaster.h"
 // Allocating and initializing CPlayerInfo's static data member.  
 // The pointer is allocated but not the object's constructor.
 CPlayerInfo *CPlayerInfo::s_instance = 0;
@@ -62,6 +62,9 @@ void CPlayerInfo::Init(void)
 	// Set the pistol as the primary weapon
 	primaryWeapon = new CPistol();
 	primaryWeapon->Init();
+	//set the laser blaster as the secondary weapon
+	secondaryWeapon = new CLaserBlaster();
+	secondaryWeapon->Init();
 }
 
 // Returns true if the player is on ground
@@ -408,6 +411,11 @@ void CPlayerInfo::Update(double dt)
 			primaryWeapon->Reload();
 			//primaryWeapon->PrintSelf();
 		}
+		if (secondaryWeapon)
+		{
+			secondaryWeapon->Reload();
+			//secondaryWeapon->PrintSelf();
+		}
 	}
 	if (primaryWeapon)
 		primaryWeapon->Update(dt);
@@ -422,7 +430,8 @@ void CPlayerInfo::Update(double dt)
 	}
 	else if (MouseController::GetInstance()->IsButtonPressed(MouseController::RMB))
 	{
-
+		if (secondaryWeapon)
+			secondaryWeapon->Discharge(position, target, this);
 	}
 
 	// If the user presses R key, then reset the view to default values
