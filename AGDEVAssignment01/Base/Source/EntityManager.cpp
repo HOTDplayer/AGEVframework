@@ -318,6 +318,9 @@ void EntityManager::Update(double _dt)
 		(*it)->Update(_dt);
 	}
 
+	//Render the Scene Graph
+	CSceneGraph::GetInstance()->Update();
+
 	// Check for Collision amongst entities with collider properties
 	CheckForCollision();
 
@@ -349,6 +352,9 @@ void EntityManager::Render()
 	{
 		(*it)->Render();
 	}
+
+	//Render the Scene Graph
+	CSceneGraph::GetInstance()->Render();
 }
 
 // Render the UI entities
