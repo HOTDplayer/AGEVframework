@@ -45,7 +45,12 @@ void CUpdateTransformation::ApplyUpdate(const float angle, const float rx, const
 	Update_Mtx.SetToRotation(angle, rx, ry, rz);
 	Update_Mtx_REVERSED.SetToRotation(-angle, rx, ry, rz);
 }
-
+// Apply scaling to the Update Transformation Matrix
+void CUpdateTransformation::ApplyScaleUpdate(const float sx, const float sy, const float sz)
+{
+	Update_Mtx.SetToScale(sx, sy, sz);
+	Update_Mtx_REVERSED.SetToScale (-sx, -sy, -sz);
+}
 // Set the minSteps and maxSteps
 void CUpdateTransformation::SetSteps(const int minSteps, const int maxSteps)
 {

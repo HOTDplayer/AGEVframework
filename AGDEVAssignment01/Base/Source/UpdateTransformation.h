@@ -20,6 +20,8 @@ public:
 	void ApplyUpdate(const float dx, const float dy, const float dz);
 	// Apply a rotation to the Update Transformation Matrix
 	void ApplyUpdate(const float angle, const float rx, const float ry, const float rz);
+	// Apply scaling to the Update Transformation Matrix
+	void ApplyScaleUpdate(const float sx, const float sy, const float sz);
 
 	// Set the minSteps and maxSteps
 	void SetSteps(const int minSteps, const int maxSteps);
