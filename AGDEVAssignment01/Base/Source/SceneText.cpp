@@ -23,6 +23,7 @@
 #include "SceneNode.h"
 #include "SceneGraph.h"
 #include "UpdateTransformation.h"
+#include "SpatialPartition.h"
 
 #include <iostream>
 using namespace std;
@@ -159,6 +160,12 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GetMesh("SKYBOX_TOP")->textureID = LoadTGA("Image//SkyBox//top.tga");
 	MeshBuilder::GetInstance()->GetMesh("SKYBOX_BOTTOM")->textureID = LoadTGA("Image//SkyBox//bottom.tga");
 	MeshBuilder::GetInstance()->GenerateRay("laser", 10.0f);
+	MeshBuilder::GetInstance()->GenerateQuad("GRIDMESH", Color(1, 1, 1), 10.f);
+
+	//Set up the Spatial Partition and pass it to the EntityManager to manage
+	CSpatialPartition::GetInstance()->Init(100, 100, 10, 10);
+	CSpatialPartition::GetInstance()->SetMesh("GRIDMESH");
+	EntityManager::GetInstance()->SetSpatialPartition(CSpatialPartition::GetInstance());
 
 	// Create entities into the scene
 	Create::Entity("reference", Vector3(0.0f, 0.0f, 0.0f)); // Reference
@@ -264,7 +271,16 @@ void SceneText::Update(double dt)
 		lights[0]->position.y -= (float)(10.f * dt);
 	if (KeyboardController::GetInstance()->IsKeyDown('P'))
 		lights[0]->position.y += (float)(10.f * dt);
-
+	if (KeyboardController::GetInstance()->IsKeyReleased('M'))
+	{
+		CSceneNode* theNode = CSceneGraph::GetInstance()->GetNode(1);
+		Vector3 pos = theNode->GetEntity()->GetPosition();
+		theNode->GetEntity()->SetPosition(Vector3(pos.x + 50.0f, pos.y, pos.z + 50.0f));
+	}
+	if (KeyboardController::GetInstance()->IsKeyReleased('N'))
+	{
+		CSpatialPartition::GetInstance()->PrintSelf();
+	}
 	// if the left mouse button was released
 	if (MouseController::GetInstance()->IsButtonReleased(MouseController::LMB))
 	{

@@ -3,6 +3,7 @@
 #include "../FPSCamera.h"
 #include "../GroundEntity.h"
 #include "../WeaponInfo/WeaponInfo.h"
+#include "../Projectile/Grenade.h"
 
 class CPlayerInfo
 {
@@ -93,6 +94,9 @@ public:
 	// Handling Camera
 	void AttachCamera(FPSCamera* _cameraPtr);
 	void DetachCamera();
+
+	//Get the terrain for the player info
+	GroundEntity* GetTerrain(void);
 
 private:
 	Vector3 defaultPosition, defaultTarget, defaultUp;
