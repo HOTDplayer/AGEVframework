@@ -1,17 +1,18 @@
 #pragma once
 
-#include"./WeaponInfo.h"
+#include "WeaponInfo.h"
+#include "../Laser.h"
 
-class CLaserBlaster :
-	public CWeaponInfo
+class CPlayerInfo;
+
+class CLaserBlaster : public CWeaponInfo
 {
 public:
-	CLaserBlaster() {};
-	virtual ~CLaserBlaster() {};
+	CLaserBlaster();
+	virtual ~CLaserBlaster();
 
-	//Initialise this instance to default values 
-	void Init();
-	//Discharge this weapon
+	// Initialise this instance to default values
+	void Init(void);
+	// Discharge this weapon
 	void Discharge(Vector3 position, Vector3 target, CPlayerInfo* _source = NULL);
-
 };

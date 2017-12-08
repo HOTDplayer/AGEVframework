@@ -1,5 +1,13 @@
 #include"CLaserBlaster.h"
 
+CLaserBlaster::CLaserBlaster()
+{
+}
+
+CLaserBlaster::~CLaserBlaster()
+{
+}
+
 void CLaserBlaster::Init()
 {
 	//Call the parent's Init method

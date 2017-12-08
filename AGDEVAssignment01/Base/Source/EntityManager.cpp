@@ -37,6 +37,8 @@ void EntityManager::Update(double _dt)
 	{
 		if ((*it)->IsDone())
 		{
+			// Remove from Scene Node before erasing it here
+			//CSceneGraph::GetInstance()->DeleteNode();
 			//Delete if done
 			delete *it;
 			it = entityList.erase(it);

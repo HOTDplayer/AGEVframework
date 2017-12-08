@@ -25,6 +25,9 @@
     <Filter Include="WeaponInfo">
       <UniqueIdentifier>{7dbec654-2f78-40a8-a3ff-38691d57358e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\LevelOfDetails">
+      <UniqueIdentifier>{fd3edbd3-c20e-407c-ae12-9e9b9432e3ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -75,9 +78,6 @@
     <ClCompile Include="Source\GenericEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CLaserBlaster.cpp">
-      <Filter>WeaponInfo</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Laser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -104,6 +104,12 @@
     </ClCompile>
     <ClCompile Include="Source\SpatialPartition.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LevelOfDetails.cpp">
+      <Filter>Header Files\LevelOfDetails</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\WeaponInfo\CLaserBlaster.cpp">
+      <Filter>WeaponInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +158,6 @@
     <ClInclude Include="Source\GenericEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CLaserBlaster.h">
-      <Filter>WeaponInfo</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Laser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -181,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="Source\SpatialPartition.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LevelOfDetails.h">
+      <Filter>Header Files\LevelOfDetails</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WeaponInfo\CLaserBlaster.h">
+      <Filter>WeaponInfo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
