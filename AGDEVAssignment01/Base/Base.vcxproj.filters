@@ -25,8 +25,11 @@
     <Filter Include="WeaponInfo">
       <UniqueIdentifier>{7dbec654-2f78-40a8-a3ff-38691d57358e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\LevelOfDetails">
+    <Filter Include="LevelOfDetails">
       <UniqueIdentifier>{fd3edbd3-c20e-407c-ae12-9e9b9432e3ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{8883a0ba-7365-409f-a339-7c20394aa5f9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -106,10 +109,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\LevelOfDetails.cpp">
-      <Filter>Header Files\LevelOfDetails</Filter>
+      <Filter>LevelOfDetails</Filter>
     </ClCompile>
     <ClCompile Include="Source\WeaponInfo\CLaserBlaster.cpp">
       <Filter>WeaponInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\CEnemy.cpp">
+      <Filter>Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -186,10 +192,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\LevelOfDetails.h">
-      <Filter>Header Files\LevelOfDetails</Filter>
+      <Filter>LevelOfDetails</Filter>
     </ClInclude>
     <ClInclude Include="Source\WeaponInfo\CLaserBlaster.h">
       <Filter>WeaponInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\CEnemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

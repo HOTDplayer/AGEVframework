@@ -9,6 +9,7 @@
 #include "Mesh.h"
 #include "MatrixStack.h"
 #include "GenericEntity.h"
+#include "Enemy\CEnemy.h"
 
 class ShaderProgram;
 class SceneManager;
@@ -36,6 +37,7 @@ private:
 	Light* lights[2];
 
 	GenericEntity* theCube;
+	CEnemy* theEnemy;
 
 	static SceneText* sInstance; // The pointer to the object that gets registered
 };
