@@ -200,3 +200,15 @@ void CWeaponInfo::PrintSelf(void)
 	cout << "elapsedTime\t\t:\t" << elapsedTime << endl;
 	cout << "bFire\t\t:\t" << bFire << endl;
 }
+
+Mtx44 CWeaponInfo::rotateGunToCamera(Vector3 CameraPos, Vector3 CameraUp, Vector3 CameraTarget)
+{
+	forward = (CameraTarget - CameraPos).Normalized();
+	up = Vector3(0, 1, 0);
+	right = forward.Cross(up);
+	right.Normalize();
+	right.y = 0;
+	up = right.Cross(forward).Normalized();
+	rotation = Mtx44(right.x, right.y, right.z, 0, up.x, up.y, up.z, 0, forward.x, forward.y, forward.z, 0, CameraPos.x, CameraPos.y, CameraPos.z, 1);
+	return rotation;
+}

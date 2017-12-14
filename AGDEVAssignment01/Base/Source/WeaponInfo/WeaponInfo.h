@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vector3.h"
+#include "Mtx44.h"
 
 class CPlayerInfo;
 
@@ -25,6 +26,9 @@ protected:
 	double elapsedTime;
 	// Boolean flag to indicate if weapon can fire now
 	bool bFire;
+
+	Vector3 up, forward, right;
+	Mtx44 rotation;
 public:
 	// Set the number of ammunition in the magazine for this player
 	virtual void SetMagRound(const int magRounds);
@@ -71,4 +75,6 @@ public:
 
 	// Print Self
 	void PrintSelf(void);
+
+	Mtx44 rotateGunToCamera(Vector3 CameraPos, Vector3 CameraUp, Vector3 CameraTarget);
 };

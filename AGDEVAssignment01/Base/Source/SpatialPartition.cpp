@@ -348,7 +348,7 @@ bool CSpatialPartition::IsVisible(Vector3 theCameraPosition,
 	//Otherwise, the entity may not get displayed 
 	if (xDistance*xDistance + zDistance*zDistance < (xGridSize*xGridSize + zGridSize*zGridSize));
 	{
-		return true;
+		return true; 
 	}
 	Vector3 gridCentre(xDistance, 0, zDistance);
 	if (theCameraDirection.Dot(gridCentre) < 0)

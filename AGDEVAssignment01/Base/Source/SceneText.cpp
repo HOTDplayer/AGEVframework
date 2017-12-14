@@ -147,6 +147,24 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GenerateQuad("GEO_GRASS_LIGHTGREEN", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GetMesh("GEO_GRASS_LIGHTGREEN")->textureID = LoadTGA("Image//ground.tga");
 
+	MeshBuilder::GetInstance()->GenerateOBJ("house06", "OBJ//witchhouse06.obj");
+	MeshBuilder::GetInstance()->GetMesh("house06")->textureID = LoadTGA("Image//wood.tga");
+
+	MeshBuilder::GetInstance()->GenerateOBJ("house05", "OBJ//witchhouse05.obj");
+	MeshBuilder::GetInstance()->GetMesh("house05")->textureID = LoadTGA("Image//wood.tga");
+
+	MeshBuilder::GetInstance()->GenerateOBJ("house02", "OBJ//witchhouse02.obj");
+	MeshBuilder::GetInstance()->GetMesh("house02")->textureID = LoadTGA("Image//wood.tga");
+
+	MeshBuilder::GetInstance()->GenerateOBJ("crate", "OBJ//crate.obj");
+	MeshBuilder::GetInstance()->GetMesh("crate")->textureID = LoadTGA("Image//crateT.tga");
+
+	MeshBuilder::GetInstance()->GenerateOBJ("dynamite", "OBJ//dynamite.obj");
+	MeshBuilder::GetInstance()->GetMesh("dynamite")->textureID = LoadTGA("Image//red.tga");
+
+	MeshBuilder::GetInstance()->GenerateOBJ("ring2", "OBJ//ring.obj");
+	MeshBuilder::GetInstance()->GetMesh("ring2")->textureID = LoadTGA("Image//black.tga");
+
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_FRONT", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_BACK", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_LEFT", Color(1, 1, 1), 1.f);
@@ -166,32 +184,49 @@ void SceneText::Init()
 	CSpatialPartition::GetInstance()->Init(100, 100, 10, 10);
 	CSpatialPartition::GetInstance()->SetMesh("GRIDMESH");
 	CSpatialPartition::GetInstance()->SetCamera(&camera);
-	CSpatialPartition::GetInstance()->SetLevelOfDetails(40000.0f, 160000.0f);
+	CSpatialPartition::GetInstance()->SetLevelOfDetails(162900.0f, 180000.0f);
 	EntityManager::GetInstance()->SetSpatialPartition(CSpatialPartition::GetInstance());
 
 	// Create entities into the scene
 	Create::Entity("reference", Vector3(0.0f, 0.0f, 0.0f)); // Reference
 	Create::Entity("lightball", Vector3(lights[0]->position.x, lights[0]->position.y, lights[0]->position.z)); // Lightball
-	GenericEntity* aCube = Create::Entity("cube", Vector3(-20.0f, 0.0f, -20.0f));
+	GenericEntity* house = Create::Entity("house06", Vector3(-20.0f, -10.0f, -20.0f), Vector3(3.0f, 3.0f, 3.0f));
+	//house->SetCollider(true);
+	//house->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
+	house->InitLOD("house06", "house05", "house02");
+	GenericEntity*  aCube = Create::Entity("cube", Vector3(-20.0f, 0.05f, 0.5f));
 	aCube->SetCollider(true);
 	aCube->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-	aCube->InitLOD("cube", "sphere", "cubeSG");
-	//Add the pointer to this new entity to the Scene Graph
-	CSceneNode* theNode = CSceneGraph::GetInstance()->AddNode(aCube);
-	if (theNode == NULL)
-	{
-		cout << "EntityManager::AddEntity: Unable to add to Scene Graph!" << endl;
-	}
 
-	GenericEntity* anotherCube = Create::Entity("cube", Vector3(-20.0f, 1.1f, -20.0f));
-	anotherCube->SetCollider(true);
-	anotherCube->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-	CSceneNode* anotherNode = theNode->AddChild(anotherCube);
-	if (anotherNode == NULL)
-	{
-		cout << "EntityManager::AddEntity: Unable to add to Scene Graph!" << endl;
-	}
+	CSceneNode* thenode = CSceneGraph::GetInstance()->AddNode(aCube);
 
+
+	GenericEntity*  anotherCube = Create::Entity("cube", Vector3(-20.0f, 0.05f, 0.5f));
+	aCube->SetCollider(true);
+	aCube->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
+	CSceneNode* thenode2 = thenode->AddChild(anotherCube);
+
+	//create crate
+	GenericEntity* crate = Create::Entity("crate", Vector3(-20.0f, 0.0f, 20.0f), Vector3(5.0f, 5.0f, 5.0f));
+	crate->SetCollider(true);
+	crate->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
+	//create dynamite
+	GenericEntity* dynamite = Create::Entity("dynamite", Vector3(20.0f, 0.0f, -20.0f), Vector3(5.0f, 5.0f, 5.0f));
+	dynamite->SetCollider(true);
+	dynamite->SetAABB(Vector3(5.0f, 5.0f, 5.0f), Vector3(-5.f, -5.f, -5.f));
+	CSceneNode* dynamite2 = CSceneGraph::GetInstance()->AddNode(dynamite);
+	if (dynamite2 == NULL)
+	{
+		cout << "idk" << endl;
+	}
+	GenericEntity* ring = Create::Entity("ring2", Vector3(20.0f, .0f, -20.0f), Vector3(5.0f, 5.0f, 5.0f));
+	CSceneNode* anotherNode2 = dynamite2->AddChild(ring);
+	GenericEntity* ring2 = Create::Entity("ring2", Vector3(20.0f, -0.f, -20.0f), Vector3(5.0f, 5.0f, 5.0f));
+	CSceneNode* anotherNode3 = dynamite2->AddChild(ring2);
+	CSceneNode* anotherNode4 = dynamite2->AddChild(crate);
+
+
+	
 	GenericEntity* baseCube = Create::Asset("cube", Vector3(0.0f, 0.0f, 0.0f));
 	CSceneNode* baseNode = CSceneGraph::GetInstance()->AddNode(baseCube);
 

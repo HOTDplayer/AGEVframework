@@ -40,6 +40,7 @@ void EntityManager::Update(double _dt)
 			// Remove from Scene Node before erasing it here
 			//CSceneGraph::GetInstance()->DeleteNode();
 			//Delete if done
+			CSceneGraph::GetInstance()->DeleteNode(*it);
 			delete *it;
 			it = entityList.erase(it);
 		}
