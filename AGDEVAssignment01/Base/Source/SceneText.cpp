@@ -202,7 +202,7 @@ void SceneText::Init()
 	CSpatialPartition::GetInstance()->Init(100, 100, 10, 10);
 	CSpatialPartition::GetInstance()->SetMesh("GRIDMESH");
 	CSpatialPartition::GetInstance()->SetCamera(&camera);
-	CSpatialPartition::GetInstance()->SetLevelOfDetails(134900.0f, 190000.0f);
+	CSpatialPartition::GetInstance()->SetLevelOfDetails(144900.0f, 200000.0f);
 	EntityManager::GetInstance()->SetSpatialPartition(CSpatialPartition::GetInstance());
 
 	// Create entities into the scene
@@ -217,7 +217,7 @@ void SceneText::Init()
 	//create crate
 	GenericEntity* crate = Create::Entity("crate", Vector3(10.0f, -5.0f, 50.0f), Vector3(5.0f, 5.0f, 5.0f));
 	crate->SetCollider(true);
-	crate->SetAABB(Vector3(1.5f, 1.5f, 1.5f), Vector3(-1.5f, -1.5f, -1.5f));
+	crate->SetAABB(Vector3(2.0f, 2.0f, 2.0f), Vector3(-2.0f, -2.0f, -2.0f));
 	GenericEntity* crate2 = Create::Entity("crate", Vector3(30.0f, -5.0f, 50.0f), Vector3(5.0f, 5.0f, 5.0f));
 	crate2->SetCollider(true);
 	crate2->SetAABB(Vector3(1.5f, 1.5f, 1.5f), Vector3(-1.5f, -1.5f, -1.5f));
@@ -245,7 +245,7 @@ void SceneText::Init()
 	GenericEntity* baseCube = Create::Entity("turretbody", Vector3(0.0f, -10.0f, 0.0f), Vector3(3.0f, 3.0f, 3.0f));
 	CSceneNode* baseNode = CSceneGraph::GetInstance()->AddNode(baseCube);
 	baseCube->SetCollider(true);
-	baseCube->SetAABB(Vector3(1.6f, 1.6f, 1.6f), Vector3(-1.6f, -1.6f, -1.6f));
+	baseCube->SetAABB(Vector3(2.6f, 2.6f, 2.6f), Vector3(-2.6f, -2.6f, -2.6f));
 
 	CUpdateTransformation*baseMtx = new CUpdateTransformation();
 	baseMtx->ApplyUpdate(0.01f, 0.0f, 0.0f);
