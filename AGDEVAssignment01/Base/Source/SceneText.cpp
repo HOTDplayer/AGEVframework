@@ -180,6 +180,9 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GenerateOBJ("turretbody", "OBJ//Turret_body.obj");
 	MeshBuilder::GetInstance()->GetMesh("turretbody")->textureID = LoadTGA("Image//Turret_body.tga");
 
+	MeshBuilder::GetInstance()->GenerateOBJ("bike", "OBJ//bike.obj");
+	MeshBuilder::GetInstance()->GetMesh("bike")->textureID = LoadTGA("Image//vehicle.tga");
+
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_FRONT", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_BACK", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_LEFT", Color(1, 1, 1), 1.f);
@@ -212,49 +215,54 @@ void SceneText::Init()
 	house->InitLOD("house06", "house05", "house02");
 
 	//create crate
-	GenericEntity* crate = Create::Entity("crate", Vector3(10.0f, -5.0f, 20.0f), Vector3(5.0f, 5.0f, 5.0f));
+	GenericEntity* crate = Create::Entity("crate", Vector3(10.0f, -5.0f, 50.0f), Vector3(5.0f, 5.0f, 5.0f));
 	crate->SetCollider(true);
-	crate->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-	GenericEntity* crate2 = Create::Entity("crate", Vector3(20.0f, -5.0f, 20.0f), Vector3(5.0f, 5.0f, 5.0f));
-	crate->SetCollider(true);
-	crate->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-	GenericEntity* crate3 = Create::Entity("crate", Vector3(30.0f, -5.0f, 20.0f), Vector3(5.0f, 5.0f, 5.0f));
-	crate->SetCollider(true);
-	crate->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
+	crate->SetAABB(Vector3(1.5f, 1.5f, 1.5f), Vector3(-1.5f, -1.5f, -1.5f));
+	GenericEntity* crate2 = Create::Entity("crate", Vector3(30.0f, -5.0f, 50.0f), Vector3(5.0f, 5.0f, 5.0f));
+	crate2->SetCollider(true);
+	crate2->SetAABB(Vector3(1.5f, 1.5f, 1.5f), Vector3(-1.5f, -1.5f, -1.5f));
+	GenericEntity* crate3 = Create::Entity("crate", Vector3(50.0f, -5.0f, 50.0f), Vector3(5.0f, 5.0f, 5.0f));
+	crate3->SetCollider(true);
+	crate3->SetAABB(Vector3(1.5f, 1.5f, 1.5f), Vector3(-1.5f, -1.5f, -1.5f));
 	//create dynamite
-	GenericEntity* dynamite = Create::Entity("dynamite", Vector3(30.0f, -.5f, 23.0f), Vector3(5.0f, 5.0f, 5.0f));
+	GenericEntity* dynamite = Create::Entity("dynamite", Vector3(30.0f, -.5f, 63.0f), Vector3(5.0f, 5.0f, 5.0f));
 	dynamite->SetCollider(true);
 	dynamite->SetAABB(Vector3(5.0f, 5.0f, 5.0f), Vector3(-5.f, -5.f, -5.f));
 	CSceneNode* dynamite2 = CSceneGraph::GetInstance()->AddNode(dynamite);
-	GenericEntity* ring = Create::Entity("ring2", Vector3(30.0f, .0f, 23.0f), Vector3(5.0f, 5.0f, 5.0f));
+	GenericEntity* ring = Create::Entity("ring2", Vector3(30.0f, -.5f, 63.0f), Vector3(5.0f, 5.0f, 5.0f));
 	CSceneNode* anotherNode2 = dynamite2->AddChild(ring);
-	GenericEntity* ring2 = Create::Entity("ring2", Vector3(30.0f, -0.9f, 23.0f), Vector3(5.0f, 5.0f, 5.0f));
+	GenericEntity* ring2 = Create::Entity("ring2", Vector3(30.0f, -1.9f, 63.0f), Vector3(5.0f, 5.0f, 5.0f));
 	CSceneNode* anotherNode3 = dynamite2->AddChild(ring2);
 	CSceneNode* anotherNode4 = dynamite2->AddChild(crate);
 	CSceneNode* anotherNode5 = dynamite2->AddChild(crate2);
 	CSceneNode* anotherNode6 = dynamite2->AddChild(crate3);
 
-
-
+	GenericEntity* bike = Create::Entity("bike", Vector3(-40.0f, -5.0f, -100.0f), Vector3(5.0f, 5.0f, 5.0f));
+	bike->SetCollider(true);
+	bike->SetAABB(Vector3(1.5f, 1.5f, 1.5f), Vector3(-1.5f, -1.5f, -1.5f));
+	CSceneNode* bike2 = CSceneGraph::GetInstance()->AddNode(bike);
 	
-	GenericEntity* baseCube = Create::Asset("turretbody", Vector3(0.0f, 0.0f, 0.0f));
+	GenericEntity* baseCube = Create::Entity("turretbody", Vector3(0.0f, -10.0f, 0.0f), Vector3(3.0f, 3.0f, 3.0f));
 	CSceneNode* baseNode = CSceneGraph::GetInstance()->AddNode(baseCube);
+	baseCube->SetCollider(true);
+	baseCube->SetAABB(Vector3(1.6f, 1.6f, 1.6f), Vector3(-1.6f, -1.6f, -1.6f));
 
 	CUpdateTransformation*baseMtx = new CUpdateTransformation();
 	baseMtx->ApplyUpdate(0.01f, 0.0f, 0.0f);
 	baseMtx->SetSteps(-30, 30);
-	baseNode->SetUpdateTransformation(baseMtx);
+	//baseNode->SetUpdateTransformation(baseMtx);
 
 	//GenericEntity* childCube = Create::Asset("cubeSG", Vector3(0.0f, 0.0f, 0.0f));
 	//CSceneNode* childNode = baseNode->AddChild(childCube);
 	//childNode->ApplyTranslate(0.0f, 1.0f, 0.0f);
 
-	GenericEntity* grandchildCube = Create::Asset("turrethead", Vector3(0.0f, 0.0f, 0.0f));
+	GenericEntity* grandchildCube = Create::Entity("turrethead", Vector3(0.0f, -10.0f, 0.0f), Vector3(3.0f, 3.0f, 3.0f));
 	CSceneNode* grandchildNode = baseNode->AddChild(grandchildCube);
 	grandchildNode->ApplyTranslate(0.0f, 0.0f, 1.0f);
+
 	CUpdateTransformation*aRotateMtx = new CUpdateTransformation();
-	aRotateMtx->ApplyUpdate(0.0f, 1.0f, 0.0f, 1.0f);
-	aRotateMtx->SetSteps(-120, 160);
+	aRotateMtx->ApplyUpdate(2.0f, 0.0f, 1.0f, .0f);
+	aRotateMtx->SetSteps(0, 80);
 	grandchildNode->SetUpdateTransformation(aRotateMtx);
 
 	//Create a CEnemy instance

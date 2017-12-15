@@ -5,8 +5,8 @@
 
 CEnemy::CEnemy()
 	: GenericEntity(NULL)
-	, defaultPosition(Vector3(0.0f, 0.0f, 0.0f))
-	, defaultTarget(Vector3(0.0f, 0.0f, 0.0f))
+	, defaultPosition(Vector3(0.0f, -10.0f, 0.0f))
+	, defaultTarget(Vector3(0.0f, -10.0f, 0.0f))
 	, defaultUp(Vector3(0.0f, 0.0f, 0.0f))
 	, target(Vector3(0.0f, 0.0f, 0.0f))
 	, up(Vector3(0.0f, 0.0f, 0.0f))
@@ -24,13 +24,14 @@ CEnemy::~CEnemy()
 void CEnemy::Init(void)
 {
 	// Set the default values
-	defaultPosition.Set(0, 0, 10);
-	defaultTarget.Set(0, 0, 0);
+	defaultPosition.Set(0, -10, 10);
+	defaultTarget.Set(0, -10, 0);
 	defaultUp.Set(0, 1, 0);
 
 	// Set the current values
-	position.Set(10.0f, 0.0f, 0.0f);
-	target.Set(10.0f, 0.0f, 450.0f);
+	position.Set(10.0f, -10.0f, 0.0f);
+	target.Set(10.0f, -10.0f, 450.0f);
+	scale.Set(10.0f, 10.0f, 10.0f);
 	up.Set(0.0f, 1.0f, 0.0f);
 
 	// Set Boundary
@@ -148,8 +149,8 @@ void CEnemy::Constrain(void)
 
 	// if the y position is not equal to terrain height at that position, 
 	// then update y position to the terrain height
-	if (position.y != m_pTerrain->GetTerrainHeight(position))
-		position.y = m_pTerrain->GetTerrainHeight(position);
+	//if (position.y != m_pTerrain->GetTerrainHeight(position))
+		//position.y = m_pTerrain->GetTerrainHeight(position);
 }
 
 // Render
