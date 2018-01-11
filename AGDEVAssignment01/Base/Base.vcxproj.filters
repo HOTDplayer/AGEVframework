@@ -31,6 +31,9 @@
     <Filter Include="Enemy">
       <UniqueIdentifier>{8883a0ba-7365-409f-a339-7c20394aa5f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WayPoint">
+      <UniqueIdentifier>{b3ea9a8f-0345-4993-9e7c-db18a675d9ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -117,6 +120,12 @@
     <ClCompile Include="Source\Enemy\CEnemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Waypoint\Waypoint.cpp">
+      <Filter>WayPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Waypoint\WaypointManager.cpp">
+      <Filter>WayPoint</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -199,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="Source\Enemy\CEnemy.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Waypoint\Waypoint.h">
+      <Filter>WayPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Waypoint\WaypointManager.h">
+      <Filter>WayPoint</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

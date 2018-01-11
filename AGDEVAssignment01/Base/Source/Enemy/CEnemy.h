@@ -1,6 +1,10 @@
 #pragma once
 #include "../GenericEntity.h"
 #include "../GroundEntity.h"
+#include "../Waypoint/Waypoint.h"
+
+#include <vector>
+using namespace std;
 
 class Mesh;
 
@@ -32,6 +36,8 @@ public:
 	Vector3 GetUp(void) const;
 	//Get the terrain for the player info
 	GroundEntity* GetTerrain(void);
+	//Get next WayPoint for this CEnemy
+	CWaypoint* GetNextWayPoint(void);
 
 	//Update
 	void Update(double dt = 0.0333f);
@@ -46,6 +52,11 @@ protected:
 	Vector3 target, up;
 	Vector3 maxBoundary, minBoundary;
 	GroundEntity* m_pTerrain;
+
+	//Vector containing IDs of Waypoints
+	vector<int> listOfWaypoints;
+	//Current ID of Waypoint
+	int m_iWayPointIndex;
 
 	double m_dSpeed;
 	double m_dAcceleration;

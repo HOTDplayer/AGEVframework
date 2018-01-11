@@ -24,6 +24,7 @@
 #include "SceneGraph.h"
 #include "UpdateTransformation.h"
 #include "SpatialPartition.h"
+#include "Waypoint\WaypointManager.h"
 
 #include <iostream>
 using namespace std;
@@ -241,7 +242,7 @@ void SceneText::Init()
 	bike->SetCollider(true);
 	bike->SetAABB(Vector3(1.5f, 1.5f, 1.5f), Vector3(-1.5f, -1.5f, -1.5f));
 	CSceneNode* bike2 = CSceneGraph::GetInstance()->AddNode(bike);
-	
+
 	GenericEntity* baseCube = Create::Entity("turretbody", Vector3(0.0f, -10.0f, 0.0f), Vector3(3.0f, 3.0f, 3.0f));
 	CSceneNode* baseNode = CSceneGraph::GetInstance()->AddNode(baseCube);
 	baseCube->SetCollider(true);
@@ -264,6 +265,12 @@ void SceneText::Init()
 	aRotateMtx->ApplyUpdate(2.0f, 0.0f, 1.0f, .0f);
 	aRotateMtx->SetSteps(0, 80);
 	grandchildNode->SetUpdateTransformation(aRotateMtx);
+
+	//Create a Waypoint inside  Waypointmanager
+	int aWayPoint = CWaypointManager::GetInstance()->AddWaypoint(Vector3(10.0f, 0.0f, 50.0f));
+	int anotherWaypoint = CWaypointManager::GetInstance()->AddWaypoint(aWayPoint, Vector3(10.0f, 0.0f, -50.0f));
+	CWaypointManager::GetInstance()->AddWaypoint(anotherWaypoint, Vector3(-10.0f, 0.0f, 0.0f));
+	CWaypointManager::GetInstance()->PrintSelf();
 
 	//Create a CEnemy instance
 	theEnemy = new CEnemy;
@@ -420,7 +427,7 @@ void SceneText::Exit()
 #if _DEBUGMODE==1
 		cout << "Unable to drop PlayerInfo class" << endl;
 #endif
-	}
+}
 
 	// Delete the lights
 	delete lights[0];
