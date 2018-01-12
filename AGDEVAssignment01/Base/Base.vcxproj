@@ -18,10 +18,12 @@
     <ClCompile Include="Source\GenericEntity.cpp" />
     <ClCompile Include="Source\Grid.cpp" />
     <ClCompile Include="Source\GroundEntity.cpp" />
+    <ClCompile Include="Source\IntroState.cpp" />
     <ClCompile Include="Source\Laser.cpp" />
     <ClCompile Include="Source\LevelOfDetails.cpp" />
     <ClCompile Include="Source\Light.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\MenuState.cpp" />
     <ClCompile Include="Source\OBJMesh.cpp" />
     <ClCompile Include="Source\PlayerInfo\PlayerInfo.cpp" />
     <ClCompile Include="Source\Projectile\Grenade.cpp" />
@@ -50,9 +52,11 @@
     <ClInclude Include="Source\GenericEntity.h" />
     <ClInclude Include="Source\Grid.h" />
     <ClInclude Include="Source\GroundEntity.h" />
+    <ClInclude Include="Source\IntroState.h" />
     <ClInclude Include="Source\Laser.h" />
     <ClInclude Include="Source\LevelOfDetails.h" />
     <ClInclude Include="Source\Light.h" />
+    <ClInclude Include="Source\MenuState.h" />
     <ClInclude Include="Source\OBJMesh.h" />
     <ClInclude Include="Source\PlayerInfo\PlayerInfo.h" />
     <ClInclude Include="Source\Projectile\Grenade.h" />

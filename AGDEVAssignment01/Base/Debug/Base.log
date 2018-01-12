@@ -1,50 +1,5 @@
-﻿  WeaponInfo.cpp
-  Pistol.cpp
-  GrenadeThrow.cpp
-  CLaserBlaster.cpp
-  WaypointManager.cpp
-  Waypoint.cpp
-  UpdateTransformation.cpp
-  Transform.cpp
-  TextEntity.cpp
-  SpriteEntity.cpp
-  SpatialPartition.cpp
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\spatialpartition.cpp(70): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\spatialpartition.cpp(153): warning C4018: '<': signed/unsigned mismatch
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\spatialpartition.cpp(177): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\spatialpartition.cpp(179): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\spatialpartition.cpp(349): warning C4390: ';': empty controlled statement found; is this the intent?
-  SkyBoxEntity.cpp
-  SceneText.cpp
-  SceneNode.cpp
-  SceneGraph.cpp
-  Projectile.cpp
-  Grenade.cpp
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\projectile\grenade.cpp(50): warning C4018: '<': signed/unsigned mismatch
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\projectile\grenade.cpp(64): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\projectile\grenade.cpp(68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  PlayerInfo.cpp
-  OBJMesh.cpp
-  main.cpp
-  Generating Code...
-  Compiling...
-  Light.cpp
-  LevelOfDetails.cpp
-  Laser.cpp
-  GroundEntity.cpp
-  Grid.cpp
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\grid.cpp(41): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\grid.cpp(42): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\grid.cpp(121): warning C4018: '<': signed/unsigned mismatch
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\grid.cpp(134): warning C4018: '<': signed/unsigned mismatch
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\grid.cpp(173): warning C4018: '<': signed/unsigned mismatch
-c:\users\wilson neoh\documents\agevframework\agdevassignment01\base\source\grid.cpp(218): warning C4018: '<': signed/unsigned mismatch
-  GenericEntity.cpp
-  FPSCamera.cpp
-  EntityManager.cpp
-  CEnemy.cpp
-  Application.cpp
-  Generating Code...
+﻿  EntityManager.cpp
 Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Base.vcxproj -> C:\Users\Wilson Neoh\Documents\AGEVframework\AGDEVAssignment01\Debug\Base.exe
+  Base.vcxproj -> C:\Users\163091U\Documents\AGEVframework\AGDEVAssignment01\Debug\Base.exe
+  Base.vcxproj -> C:\Users\163091U\Documents\AGEVframework\AGDEVAssignment01\Debug\Base.pdb (Full PDB)
