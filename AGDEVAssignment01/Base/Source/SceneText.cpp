@@ -93,7 +93,7 @@ void SceneText::Init()
 
 	//currProg->UpdateInt("numLights", 1);
 	//currProg->UpdateInt("textEnabled", 0);
-
+	pause = new PauseMenu();
 	lights[0] = new Light();
 	GraphicsManager::GetInstance()->AddLight("lights[0]", lights[0]);
 	lights[0]->type = Light::LIGHT_DIRECTIONAL;
@@ -309,8 +309,13 @@ void SceneText::Init()
 void SceneText::Update(double dt)
 {
 	// Update our entities
+	pause->Update(dt);
+	if (pause->ispaused())
+	{
+		//SceneManager::GetInstance()->SetActiveScene("PauseMenu");
+		return;
+	}
 	EntityManager::GetInstance()->Update(dt);
-
 	// THIS WHOLE CHUNK TILL <THERE> CAN REMOVE INTO ENTITIES LOGIC! Or maybe into a scene function to keep the update clean
 	if (KeyboardController::GetInstance()->IsKeyDown('1'))
 		glEnable(GL_CULL_FACE);
@@ -398,6 +403,7 @@ void SceneText::Update(double dt)
 	ss1.precision(4);
 	ss1 << "Player:" << playerInfo->GetPos();
 	textObj[2]->SetText(ss1.str());
+
 }
 
 void SceneText::Render()
@@ -430,7 +436,7 @@ void SceneText::Exit()
 #if _DEBUGMODE==1
 		cout << "Unable to drop PlayerInfo class" << endl;
 #endif
-}
+	}
 
 	// Delete the lights
 	delete lights[0];

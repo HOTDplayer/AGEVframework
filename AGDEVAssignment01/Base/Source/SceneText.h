@@ -10,7 +10,7 @@
 #include "MatrixStack.h"
 #include "GenericEntity.h"
 #include "Enemy\CEnemy.h"
-
+#include"PauseMenu.h"
 class ShaderProgram;
 class SceneManager;
 class TextEntity;
@@ -38,7 +38,7 @@ private:
 
 	GenericEntity* theCube;
 	CEnemy* theEnemy;
-
+	PauseMenu* pause;
 	//static SceneText* sInstance; // The pointer to the object that gets registered
 };
 

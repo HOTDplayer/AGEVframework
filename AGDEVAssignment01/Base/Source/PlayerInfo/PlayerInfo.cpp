@@ -67,6 +67,8 @@ void CPlayerInfo::Init(void)
 	//set the laser blaster as the secondary weapon
 	secondaryWeapon = new CGrenadeThrow();
 	secondaryWeapon->Init();
+
+	pause = new PauseMenu();
 }
 
 // Returns true if the player is on ground
@@ -264,6 +266,12 @@ void CPlayerInfo::UpdateFreeFall(double dt)
  ********************************************************************************/
 void CPlayerInfo::Update(double dt)
 {
+	//pause->Update(dt);
+	//if (pause->ispaused())
+	//{
+	//	/*SceneManager::GetInstance()->SetActiveScene("PauseMenu");*/
+	//	return;
+	//}
 	double mouse_diff_x, mouse_diff_y;
 	MouseController::GetInstance()->GetMouseDelta(mouse_diff_x, mouse_diff_y);
 
@@ -439,7 +447,7 @@ void CPlayerInfo::Update(double dt)
 	// If the user presses R key, then reset the view to default values
 	if (KeyboardController::GetInstance()->IsKeyDown('P'))
 	{
-		Reset();
+		//Reset();
 	}
 	else
 	{

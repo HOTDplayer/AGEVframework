@@ -25,6 +25,7 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\MenuState.cpp" />
     <ClCompile Include="Source\OBJMesh.cpp" />
+    <ClCompile Include="Source\PauseMenu.cpp" />
     <ClCompile Include="Source\PlayerInfo\PlayerInfo.cpp" />
     <ClCompile Include="Source\Projectile\Grenade.cpp" />
     <ClCompile Include="Source\Projectile\Projectile.cpp" />
@@ -58,6 +59,7 @@
     <ClInclude Include="Source\Light.h" />
     <ClInclude Include="Source\MenuState.h" />
     <ClInclude Include="Source\OBJMesh.h" />
+    <ClInclude Include="Source\PauseMenu.h" />
     <ClInclude Include="Source\PlayerInfo\PlayerInfo.h" />
     <ClInclude Include="Source\Projectile\Grenade.h" />
     <ClInclude Include="Source\Projectile\Projectile.h" />

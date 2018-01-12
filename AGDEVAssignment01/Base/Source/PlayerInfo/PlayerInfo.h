@@ -4,7 +4,7 @@
 #include "../GroundEntity.h"
 #include "../WeaponInfo/WeaponInfo.h"
 #include "../Projectile/Grenade.h"
-
+#include"../PauseMenu.h"
 class CPlayerInfo
 {
 protected:
@@ -99,6 +99,7 @@ public:
 	GroundEntity* GetTerrain(void);
 
 private:
+	PauseMenu* pause;
 	Vector3 defaultPosition, defaultTarget, defaultUp;
 	Vector3 position, target, up;
 	Vector3 maxBoundary, minBoundary;
