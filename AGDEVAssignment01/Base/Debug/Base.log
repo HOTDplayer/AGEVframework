@@ -1,4 +1,9 @@
-﻿  PauseMenu.cpp
+﻿  LuaInterface.cpp
+c:\users\163091u\documents\agevframework\agdevassignment01\base\source\lua\lua.hpp(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\163091u\documents\agevframework\agdevassignment01\base\source\lua\luainterface.cpp(88): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+c:\users\163091u\documents\agevframework\agdevassignment01\base\source\lua\luainterface.cpp(98): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
 Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Base.vcxproj -> C:\Users\163091U\Documents\AGEVframework\AGDEVAssignment01\Debug\Base.exe

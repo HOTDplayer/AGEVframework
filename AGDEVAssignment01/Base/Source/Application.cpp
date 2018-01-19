@@ -16,7 +16,7 @@
 
 #include "SceneText.h"
 #include "ShaderProgram.h"
-
+#include"../Source/Lua/LuaInterface.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
@@ -92,9 +92,12 @@ void Application::InitDisplay(void)
 
 	currProg->UpdateInt("numLights", 1);
 	currProg->UpdateInt("textEnabled", 0);
+
 }
 
 Application::Application()
+	:m_window_height(480)
+	,m_window_width(640)
 {
 }
 
@@ -104,6 +107,16 @@ Application::~Application()
 
 void Application::Init()
 {
+	//initialise the lua system
+	CLuaInterface::GetInstance()->Init();
+
+	//get the opengl resolution
+	m_window_width = CLuaInterface::GetInstance()->getIntValue("width");
+	m_window_height = CLuaInterface::GetInstance()->getIntValue("height");
+	
+	CLuaInterface::GetInstance()->Run();
+	CLuaInterface::GetInstance()->saveFloatValue("Player1", 200.10f, true);
+	CLuaInterface::GetInstance()->saveIntValue("Player2", 100);
 	//Set the error callback
 	glfwSetErrorCallback(error_callback);
 
@@ -193,6 +206,8 @@ void Application::Run()
 
 void Application::Exit()
 {
+	//Drop the Lua system
+	CLuaInterface::GetInstance()->Drop();
 	//Close OpenGL window and terminate GLFW
 	glfwDestroyWindow(m_window);
 	//Finalize and clean up GLFW
