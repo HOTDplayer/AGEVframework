@@ -150,10 +150,10 @@ float CLuaInterface::getDistanceSquareValue(const char * varName, Vector3 source
 int CLuaInterface::getVariableValues(const char * varName, int & a, int & b, int & c, int & d)
 {
 	lua_getglobal(theLuaState, varName);
-	lua_pushnumber(theLuaState, 1000);
-	lua_pushnumber(theLuaState, 2000);
-	lua_pushnumber(theLuaState, 3000);
-	lua_pushnumber(theLuaState, 4000);
+	lua_pushnumber(theLuaState, a);
+	lua_pushnumber(theLuaState, b);
+	lua_pushnumber(theLuaState, c);
+	lua_pushnumber(theLuaState, d);
 	lua_call(theLuaState, 4, 4);
 	a = lua_tonumber(theLuaState, -1);
 	lua_pop(theLuaState, 1);

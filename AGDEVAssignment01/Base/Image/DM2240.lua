@@ -36,7 +36,7 @@ end
 function GetMinMax(...)
 	local minValue = -1
 	local maxValue = -1
-	local avgValue = -1
+	local avgValue = 0
 	local numValues = 0
 	for i,v in ipairs(arg) do
 		if minValue == -1 then
@@ -54,7 +54,7 @@ function GetMinMax(...)
 		avgValue = avgValue + v
 		numValues = numValues + 1
     end
-	avgValue = avgValue / numValues
+	 avgValue = avgValue / numValues
 	print(minValue, maxValue, avgValue, numValues)
 	return minValue, maxValue, avgValue, numValues
 end
