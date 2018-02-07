@@ -11,6 +11,8 @@
 #include "GenericEntity.h"
 #include "Enemy\CEnemy.h"
 #include"PauseMenu.h"
+#include "Lua\LuaInterface.h"
+
 class ShaderProgram;
 class SceneManager;
 class TextEntity;

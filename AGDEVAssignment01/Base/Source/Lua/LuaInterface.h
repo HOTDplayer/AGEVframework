@@ -52,8 +52,13 @@ public:
 	float getDistanceSquareValue(const char* varName, Vector3 source, Vector3 destination);
 	//get variable number of values through the lua interface class
 	int getVariableValues(const char* varName, int &a, int &b, int &c, int &d);
+	//Extract a field from a table
+	float CLuaInterface::GetField(const char *key);
+	//Get error message using an error code
+	void error(const char *errorCode);
 	// Pointer to the Lua State
 	lua_State *theLuaState;
+	lua_State *theErrorState;
 
 	// Key to move forward
 	char keyFORWARD;

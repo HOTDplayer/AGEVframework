@@ -25,6 +25,7 @@
 #include "UpdateTransformation.h"
 #include "SpatialPartition.h"
 #include "Waypoint\WaypointManager.h"
+#include "Lua\LuaInterface.h"
 
 #include <iostream>
 using namespace std;
@@ -270,9 +271,12 @@ void SceneText::Init()
 	grandchildNode->SetUpdateTransformation(aRotateMtx);
 
 	//Create a Waypoint inside  Waypointmanager
-	int aWayPoint = CWaypointManager::GetInstance()->AddWaypoint(Vector3(10.0f, 0.0f, 50.0f));
-	int anotherWaypoint = CWaypointManager::GetInstance()->AddWaypoint(aWayPoint, Vector3(10.0f, 0.0f, -50.0f));
-	CWaypointManager::GetInstance()->AddWaypoint(anotherWaypoint, Vector3(-10.0f, 0.0f, 0.0f));
+	lua_getglobal(CLuaInterface::GetInstance()->theLuaState, "Waypoint_A_1");
+	int aWayPoint = CWaypointManager::GetInstance()->AddWaypoint(Vector3(CLuaInterface::GetInstance()->GetField("x"), CLuaInterface::GetInstance()->GetField("y"), CLuaInterface::GetInstance()->GetField("z")));
+	lua_getglobal(CLuaInterface::GetInstance()->theLuaState, "Waypoint_A_2");
+	int anotherWaypoint = CWaypointManager::GetInstance()->AddWaypoint(aWayPoint, Vector3(CLuaInterface::GetInstance()->GetField("x"), CLuaInterface::GetInstance()->GetField("y"), CLuaInterface::GetInstance()->GetField("z")));
+	lua_getglobal(CLuaInterface::GetInstance()->theLuaState, "Waypoint_A_3");
+	CWaypointManager::GetInstance()->AddWaypoint(anotherWaypoint, Vector3(CLuaInterface::GetInstance()->GetField("x"), CLuaInterface::GetInstance()->GetField("y"), CLuaInterface::GetInstance()->GetField("z")));
 	CWaypointManager::GetInstance()->PrintSelf();
 
 	//Create a CEnemy instance
