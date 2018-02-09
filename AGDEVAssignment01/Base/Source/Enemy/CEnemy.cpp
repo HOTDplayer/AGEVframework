@@ -55,7 +55,7 @@ void CEnemy::Init(void)
 
 	// Set speed
 	m_dSpeed = 1.0;
-
+	currstate = STATE_HUNGRY;
 	// Initialise the LOD meshes
 	InitLOD("car", "car2", "car3");
 
@@ -162,7 +162,23 @@ void CEnemy::Update(double dt)
 	else if (position.z < -400.0f)
 	target.z = position.z * -1;
 	*/
-
+	cout << position << endl;
+	switch(currstate)
+	{
+	case STATE_HUNGRY:
+		if (position.z <= -10)
+			currstate = STATE_DEAD;
+		break;
+	case STATE_DEAD:
+		position.y+=m_dSpeed * (float)dt;
+		if (position.y >= 10)
+			currstate = STATE_FULL;
+		break;
+	case STATE_FULL:
+		position.y = 0;
+		break;
+	}
+	cout << (target - position).LengthSquared() << endl;
 	if ((target - position).LengthSquared() < 25.0f)
 	{
 		CWaypoint* nextWaypoint = GetNextWayPoint();

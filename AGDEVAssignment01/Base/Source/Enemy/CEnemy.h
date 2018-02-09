@@ -14,6 +14,15 @@ public:
 	CEnemy(void);
 	virtual ~CEnemy();
 
+	enum STATE
+	{
+		STATE_NONE = 0,
+		STATE_TOOFULL,
+		STATE_FULL,
+		STATE_HUNGRY,
+		STATE_DEAD,
+	};
+
 	void Init(void);
 	//Reset this player instance to default
 	void Reset(void);
@@ -38,7 +47,7 @@ public:
 	GroundEntity* GetTerrain(void);
 	//Get next WayPoint for this CEnemy
 	CWaypoint* GetNextWayPoint(void);
-
+	STATE currstate;
 	//Update
 	void Update(double dt = 0.0333f);
 

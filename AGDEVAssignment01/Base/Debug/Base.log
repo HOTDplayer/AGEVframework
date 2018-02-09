@@ -1,3 +1,14 @@
-﻿Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+﻿  Application.cpp
+c:\users\163091u\documents\agevframework\agdevassignment01\base\source\lua\lua.hpp(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  SceneText.cpp
+  PauseMenu.cpp
+  MenuState.cpp
+  IntroState.cpp
+  CEnemy.cpp
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Base.vcxproj -> C:\Users\Wilson Neoh\Documents\AGEVframework\AGDEVAssignment01\Debug\Base.exe
+  Base.vcxproj -> C:\Users\163091U\Documents\AGEVframework\AGDEVAssignment01\Debug\Base.exe
+  Base.vcxproj -> C:\Users\163091U\Documents\AGEVframework\AGDEVAssignment01\Debug\Base.pdb (Full PDB)
